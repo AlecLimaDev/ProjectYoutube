@@ -2,6 +2,16 @@ import React, { useCallback, useEffect, useState } from "react";
 import api from "./helper";
 import styled from "styled-components";
 import Navbar from "./components/Navbar";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Search,
+} from "react-router-dom";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import ChannelTheVideo from "./pages/ChanellsTheVIdeo";
+import CategoryTheVideos from "./pages/CategoryTheVideos";
 
 interface LocationState {
   playlistId: string;
@@ -63,9 +73,17 @@ const App: React.FC = () => {
   );
 
   return (
-    <Navbar>
-      
-    </Navbar>
+    <Router>
+      <Navbar />
+      <Wrapper>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/channels" element={<ChannelTheVideo />} />
+          <Route path="/categoryTheVideos" element={<CategoryTheVideos />} />
+        </Routes>
+      </Wrapper>
+      <Footer />
+    </Router>
   );
 };
 export default App;

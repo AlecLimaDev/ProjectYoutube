@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { styled } from "styled-components";
 
@@ -21,7 +22,9 @@ const Section = styled.a`
   color: white;
   font-size: 16px;
   font-family: sans-serif;
-  flex-grow: 0;
+  font-family: sans-serif;
+  text-decoration: none;
+  list-style: none;
 
   &:hover {
     height: 20px;
@@ -32,7 +35,7 @@ const Section = styled.a`
 `;
 
 const Logo = styled.h1`
-  color: white;
+  color: red;
   font-family: sans-serif;
   font-size: 24px;
   margin-left: 50px;
@@ -49,9 +52,15 @@ const Navbar: React.FC = () => {
   return (
     <Nav>
       <Logo>Youtube Project</Logo>
-      <Section>Tela Inicial</Section>
-      <Section>Canais</Section>
-      <Section>Categoria de Vídeos</Section>
+      <Link to="/Home">
+        <Section>Tela Inicial</Section>
+      </Link>
+      <Link to="/Channels">
+        <Section>Canais</Section>
+      </Link>
+      <Link to="/categoryTheVIdeos">
+        <Section>Categoria de Vídeos</Section>
+      </Link>
     </Nav>
   );
 };
